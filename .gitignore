@@ -12,6 +12,9 @@
 
 # testing
 /coverage
+src/tests/e2e/test-results
+src/tests/e2e/playwright-report
+src/tests/e2e/blob-report
 
 # next.js
 /.next/
