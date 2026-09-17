@@ -15,6 +15,7 @@ Boilerplate/starter para novos projetos em **Next.js 16** (App Router), já conf
 - [Estilização e componentes de UI](#estilização-e-componentes-de-ui)
 - [Testes](#testes)
 - [Lint e formatação](#lint-e-formatação)
+- [Git hooks (Husky)](#git-hooks-husky)
 - [Documentação completa (deep dive)](#documentação-completa-deep-dive)
 - [Deploy](#deploy)
 
@@ -30,6 +31,7 @@ Boilerplate/starter para novos projetos em **Next.js 16** (App Router), já conf
 | Testes E2E | Playwright (chromium, firefox, webkit) |
 | Lint | ESLint 9 (flat config) — `eslint-config-next`, `jsx-a11y`, `check-file` |
 | Formatação | Prettier — ordenação automática de imports e de classes Tailwind |
+| Git hooks | Husky + lint-staged (`pre-commit`) e testes unitários (`pre-push`) |
 | Ambiente | Node fixado via `.nvmrc`, pnpm como package manager único |
 | Env vars | Helper tipado (`src/utils/env.ts`) com validação de env obrigatória |
 
@@ -126,6 +128,14 @@ Detalhes completos em [`docs/config/testes.md`](./docs/config/testes.md).
 
 Detalhes completos em [`docs/config/lint-formatacao.md`](./docs/config/lint-formatacao.md).
 
+## Git hooks (Husky)
+
+- **`pre-commit`**: roda `lint-staged` (ESLint `--fix` + Prettier) apenas nos arquivos `.ts`/`.tsx` staged.
+- **`pre-push`**: roda `pnpm test` (testes unitários) e bloqueia o push se algum teste falhar.
+- Instalados automaticamente pelo script `prepare` do `package.json` após `pnpm install` — não é necessário nenhum passo manual.
+
+Detalhes completos em [`docs/config/husky.md`](./docs/config/husky.md).
+
 ## Documentação completa (deep dive)
 
 Para entender exatamente *como e por quê* cada parte do stack está configurada (não só o que está instalado), consulte:
@@ -134,6 +144,7 @@ Para entender exatamente *como e por quê* cada parte do stack está configurada
 - [`docs/config/testes.md`](./docs/config/testes.md) — Vitest e Playwright.
 - [`docs/config/estilizacao.md`](./docs/config/estilizacao.md) — Tailwind CSS v4, shadcn/ui e o fluxo de reuso/instalação de componentes.
 - [`docs/config/lint-formatacao.md`](./docs/config/lint-formatacao.md) — ESLint, Prettier e EditorConfig.
+- [`docs/config/husky.md`](./docs/config/husky.md) — hooks de `pre-commit` e `pre-push`.
 
 ## Deploy
 
