@@ -1,0 +1,5 @@
+echo "🧪 Executando testes antes do push..."
+
+yarn test
+
+echo "✅ Todos os testes passaram! Push permitido."
