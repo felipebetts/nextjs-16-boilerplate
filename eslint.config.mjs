@@ -34,11 +34,7 @@ const eslintConfig = defineConfig([
       "check-file/folder-naming-convention": [
         "error",
         {
-          // This boilerplate's App Router lives at the repo root (`app/`)
-          // instead of `src/app/`; keep both so the rule still applies if a
-          // future project switches to a `src/` layout.
-          "app/**": "NEXT_JS_APP_ROUTER_CASE",
-          "src/**": "NEXT_JS_APP_ROUTER_CASE",
+          "src/app/**": "NEXT_JS_APP_ROUTER_CASE",
         },
       ],
     },
